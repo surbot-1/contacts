@@ -31,16 +31,25 @@
        function submitContactInfo() {
               var userName = document.getElementById ("nameField").value;
               var userPhone = document.getElementById ("phoneField").value;
-             // document.getElementById("result").innerHTML = "";
-             // document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
-             // document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
+              document.getElementById("result").innerHTML = "";
+              document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
+              document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
              // window.location.href="https://surbot-1.github.io/surbot5/";
-            firebase.database().ref("Contacts").set({
+           var doc;
+           var resultCnf = confirm("Do you want to save contact?");
+           if (resultCnf == true) {
+                doc = "Saved";
+            } else {
+                doc = "";
+            }
+           document.getElementById("root").innerHTML = doc;
+       firebase.database().ref("Contacts").set({
               Name:  userName , 
               Phone: userPhone
-            });
+              });
+       window.location.href="https://surbot-1.github.io/surbot5/"; 
            }
-        var ref = firebase.database().ref("Contacts"); 
+       var ref = firebase.database().ref("Contacts"); 
                ref.on("value", function(snapshot) {
                snapshot.forEach(function(element) {
                document.querySelector('#root').innerHTML +=`
