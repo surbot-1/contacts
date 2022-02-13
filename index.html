@@ -3,7 +3,7 @@
 <head>
     <title>MessageChat</title>
 </head>
-  <h5>Enter your Name and Phone Number</h5>
+  <h5> Create New Contact </h5>
   <body>
     <form> Name :
     <input type="text" placeholder="Name" id="nameField">
@@ -11,7 +11,7 @@
            Phone:
     <input type="number" placeholder="Phone Number" id="phoneField">
     </form>
-    <button onclick = "submitUserInfo()"> Submit </button>
+    <button onclick = "submitContactInfo()"> Save </button>
     
       <div> <p id="result"></p> </div>
       <div id="root"</div>
@@ -27,14 +27,17 @@
            appId: "1:702504911981:web:6d1fea970a851c7ff3ab64"
            };
           firebase.initializeApp(firebaseConfig);
-       function submitUserInfo() {
+       function submitContactInfo() {
               var userName = document.getElementById ("nameField").value;
               var userPhone = document.getElementById ("phoneField").value;
-              document.getElementById("result").innerHTML = "";
-              document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
-              document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
-              window.location.href="https://surbot-1.github.io/surbot5/";
-      
+             // document.getElementById("result").innerHTML = "";
+             // document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
+             // document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
+             // window.location.href="https://surbot-1.github.io/surbot5/";
+            firebase.database().ref("Contacts").set({
+            a_Name: userName , 
+            b_Message: userPhone
+            });
            }
     </script>  
   </body>
