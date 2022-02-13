@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MessageChat</title>
+</head>
+  <h5>Enter your Name and Phone Number</h5>
+  <body>
+    <form> Name :
+    <input type="text" placeholder="Name" id="nameField">
+    <br>
+           Phone:
+    <input type="number" placeholder="Phone Number" id="phoneField">
+    </form>
+    <button onclick = "submitUserInfo()"> Submit </button>
+    
+      <div> <p id="result"></p> </div>
+      <div id="root"</div>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script>
+       const firebaseConfig = {
+           apiKey: "AIzaSyCmNVaTr8sTKQVSqZprpBK-AMTpUsNPUGs",
+           authDomain: "surbot-v1-1.firebaseapp.com",
+           databaseURL: "https://surbot-v1-1-default-rtdb.firebaseio.com",
+           projectId: "surbot-v1-1",
+           storageBucket: "surbot-v1-1.appspot.com",
+           messagingSenderId: "702504911981",
+           appId: "1:702504911981:web:6d1fea970a851c7ff3ab64"
+           };
+          firebase.initializeApp(firebaseConfig);
+       function submitUserInfo() {
+              var userName = document.getElementById ("nameField").value;
+              var userPhone = document.getElementById ("phoneField").value;
+              document.getElementById("result").innerHTML = "";
+              document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
+              document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
+              window.location.href="https://surbot-1.github.io/surbot5/";
+      
+           }
+    </script>  
+  </body>
+</html>
