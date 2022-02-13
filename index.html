@@ -35,18 +35,19 @@
               document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
               document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
              // window.location.href="https://surbot-1.github.io/surbot5/";
-           var doc;
+          /* var doc;
            var resultCnf = confirm("Do you want to save contact?");
            if (resultCnf == true) {
                 doc = "Saved";
             } else {
                 doc = "";
             }
-           document.getElementById("root").innerHTML = doc;
+           document.getElementById("result").innerHTML = doc; */
        firebase.database().ref("Contacts").set({
               Name:  userName , 
               Phone: userPhone
               });
+       document.getElementById("result").innerHTML = "Saved";
       // window.location.href="https://surbot-1.github.io/surbot5/"; 
            }
        var ref = firebase.database().ref("Contacts"); 
