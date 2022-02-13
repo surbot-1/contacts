@@ -12,7 +12,7 @@
     <input type="number" placeholder="Phone Number" id="phoneField">
     </form>
     <button onclick = "submitContactInfo()"> Save </button>
-    
+    <button onclick = "ContactInfo()"> Contacts </button>
       <div> <p id="result"></p> </div>
       <div id="root"</div>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
@@ -43,14 +43,15 @@
                 doc = "";
             }
            document.getElementById("result").innerHTML = doc; */
-       firebase.database().ref("Contacts").set({
+           firebase.database().ref("Contacts").set({
               Name:  userName , 
               Phone: userPhone
               });
-      // document.getElementById("result").innerHTML += '<br>' + "Saved";
-      // window.location.href="https://surbot-1.github.io/surbot5/"; 
-           }
-       var ref = firebase.database().ref("Contacts"); 
+           // document.getElementById("result").innerHTML += '<br>' + "Saved";
+           // window.location.href="https://surbot-1.github.io/surbot5/"; 
+          }
+        function ContactInfo() {
+               var ref = firebase.database().ref("Contacts"); 
                ref.on("value", function(snapshot) {
                snapshot.forEach(function(element) {
                document.querySelector('#root').innerHTML +=`
@@ -58,7 +59,7 @@
                `
                  }); 
                });
-        
+            }
     </script>  
   </body>
 </html>
