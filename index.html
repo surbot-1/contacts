@@ -36,10 +36,19 @@
              // document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
              // window.location.href="https://surbot-1.github.io/surbot5/";
             firebase.database().ref("Contacts").set({
-            a_Name:  userName , 
-            b_Phone: userPhone
+              Name:  userName , 
+              Phone: userPhone
             });
            }
+        var ref = firebase.database().ref("Message"); 
+               ref.on("value", function(snapshot) {
+               snapshot.forEach(function(element) {
+               document.querySelector('#root').innerHTML +=`
+               <div>${element.val()}<\div>
+               `
+                 }); 
+               });
+        
     </script>  
   </body>
 </html>
