@@ -40,7 +40,7 @@
               Phone: userPhone
             });
            }
-        var ref = firebase.database().ref("Message"); 
+        var ref = firebase.database().ref("Contacts"); 
                ref.on("value", function(snapshot) {
                snapshot.forEach(function(element) {
                document.querySelector('#root').innerHTML +=`
