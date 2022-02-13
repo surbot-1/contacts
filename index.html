@@ -43,7 +43,9 @@
                 doc = "";
             }
            document.getElementById("result").innerHTML = doc; */
-           firebase.database().ref("Contacts").set({
+              var ref = firebase.database().ref("Contacts");
+              var newRef = ref().push();
+              newRef.set({
               Name:  userName , 
               Phone: userPhone
               });
