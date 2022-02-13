@@ -51,6 +51,7 @@
            // window.location.href="https://surbot-1.github.io/surbot5/"; 
           }
         function ContactInfo() {
+               document.getElementById("root").innerHTML = "";
                var ref = firebase.database().ref("Contacts"); 
                ref.on("value", function(snapshot) {
                snapshot.forEach(function(element) {
