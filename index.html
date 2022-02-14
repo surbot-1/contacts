@@ -11,7 +11,7 @@
            Phone:
     <input type="number" placeholder="Phone Number" id="phoneField">
     </form>
-    <button onclick = "submitContactInfo()"> Save </button>
+    <button onclick = "saveContactInfo()"> Save </button>
     <button onclick = "ContactInfo()"> Contacts </button>
       <div> <p id="result"></p> </div>
       <div id="root"</div>
@@ -28,13 +28,14 @@
            appId: "1:702504911981:web:6d1fea970a851c7ff3ab64"
            };
           firebase.initializeApp(firebaseConfig);
-       function submitContactInfo() {
+       function saveContactInfo() {
               var userName = document.getElementById ("nameField").value;
               var userPhone = document.getElementById ("phoneField").value;
               document.getElementById("result").innerHTML = "";
               document.getElementById("result").innerHTML += '<br>' + "Name :" + userName;
               document.getElementById("result").innerHTML += '<br>' + "Phone:" + userPhone;
-              document.getElementById("result").innerHTML += '<br>' + "Saved";  
+              document.getElementById("result").innerHTML += '<br>' + "Saved"; 
+              alert('New contact successfully saved!');
                  /* var doc;
                  var resultCnf = confirm("Do you want to save contact?");
                  if (resultCnf == true) {
