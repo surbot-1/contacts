@@ -44,7 +44,7 @@
             }
            document.getElementById("result").innerHTML = doc; */
               var ref = firebase.database().ref("Contacts");
-              var newRef = ref().push();
+              var newRef = ref.push();
               newRef.set({
               Name:  userName , 
               Phone: userPhone
