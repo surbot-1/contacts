@@ -55,7 +55,7 @@
          function ContactInfo() {
                document.getElementById("root").innerHTML = "";
                document.getElementById("root").innerHTML = " Contacts ";
-               var ref = firebase.database().ref("Contacts"); 
+               var ref = firebase.database().ref("Contacts").child(); 
                ref.once("value", function(snapshot) {
                snapshot.forEach(function(element) {
                document.querySelector('#root').innerHTML +=`
